@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
 from string import punctuation
 from collections import defaultdict
 

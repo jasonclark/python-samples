@@ -7,10 +7,11 @@ import requests
 import re
 import sys
 
-#hardcode URI to request
+#URI of the data source
+URI = sys.argv[1] if len(sys.argv) > 1 else 'https://arc.lib.montana.edu/ivan-doig/about.php'
 #URI = 'https://arc.lib.montana.edu/ivan-doig/about.php'
-#allow URI to be passed to script
-URI = sys.argv[1]
+#if len(sys.argv) > 1:
+    #URI = sys.argv[1]
 
 def parseSource(uri):
     request = requests.get(uri, headers={'User-Agent' : 'jasonclark.info indexing bot'})

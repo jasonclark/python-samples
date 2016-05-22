@@ -6,9 +6,10 @@ import sys
 import xml.dom.minidom
 
 # URI of the feed
-#URI = 'https://www.npr.org/rss/rss.php?id=1019'
-#allow URI to be passed to script
-URI = sys.argv[1]
+URI = sys.argv[1] if len(sys.argv) > 1 else 'http://www.npr.org/rss/rss.php?id=1019'
+#URI = 'http://www.npr.org/rss/rss.php?id=1019'
+#if len(sys.argv) > 1:
+    #URI = sys.argv[1]
 
 # actual xml document
 document = xml.dom.minidom.parse(urllib.urlopen(URI))
@@ -29,7 +30,7 @@ for item in document.getElementsByTagName('item'):
     # concatenate all html into one string for printing
     info += info_str
 
-# check result
+# show result as HTML
 print "<ul>"
 print(info)
 print "</ul>"

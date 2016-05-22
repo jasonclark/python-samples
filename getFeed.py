@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+
 # get feed data from url
 import urllib
 import sys
 import xml.dom.minidom
 
 # URI of the feed
-URI = 'http://twitter.com/statuses/user_timeline/3175741.rss'
+URI = 'https://www.npr.org/rss/rss.php?id=1019'
 
 # actual xml document
 document = xml.dom.minidom.parse(urllib.urlopen(URI))

@@ -6,7 +6,9 @@ import sys
 import xml.dom.minidom
 
 # URI of the feed
-URI = 'https://www.npr.org/rss/rss.php?id=1019'
+#URI = 'https://www.npr.org/rss/rss.php?id=1019'
+#allow URI to be passed to script
+URI = sys.argv[1]
 
 # actual xml document
 document = xml.dom.minidom.parse(urllib.urlopen(URI))

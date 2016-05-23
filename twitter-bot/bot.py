@@ -16,11 +16,11 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-filename=open(source,'r')
-f=filename.readlines()
-filename.close()
+with open(source, "r") as filename:
+    data = filename.readlines()
+    filename.close()
 
-for line in f:
+for line in data:
     api.update_status(line)
-    #tweet every 15 minutes    
+    tweet every 15 minutes
     time.sleep(900)

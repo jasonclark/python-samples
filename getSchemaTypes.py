@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 #import json
 import requests
 #import urllib
-import re
 import sys
 
 #URI of the data source
@@ -29,13 +28,13 @@ def parseSource(uri):
 
     print ('Page Title: \n' + title)
 
-    #for link in soup.find_all(property=re.compile("additionalType")):
-    for link in soup.find_all('a', attrs={'property':'about'}):
-        print('Wikipedia link: \n' + link.get('href'))
+    #for link in soup.find_all('a', attrs={'property':'about'}):
+    for link in soup.find_all(property='about'):
+        print('about link: \n' + link.get('href'))
 
-    #for dblink in soup.find_all(property=re.compile("additionalType")):
-    for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
-        print('Dbpedia link: \n' + dblink.get('resource'))
+    #for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
+    for dblink in soup.find_all(property='additionalType'):
+        print('additionalType link: \n' + dblink.get('resource'))
     
 showResult = parseSource(URI)
 print showResult

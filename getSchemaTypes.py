@@ -16,6 +16,11 @@ def parseSource(uri):
     request = requests.get(uri, headers={'User-Agent' : 'jasonclark.info indexing bot'})
     #request = urllib.urlopen(uri).read()
 
+    #check for HTTP codes other than 200
+    if request.status_code != 200:
+        print('Status:', request.status_code, 'Problem with the request. Exiting.')
+        exit()
+
     soup = BeautifulSoup(request.text, 'html.parser')
     #soup = BeautifulSoup(request, 'html.parser')
     #print soup.findAll('a')

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-#get feed data from url
 import requests
 import sys
 import xml.dom.minidom

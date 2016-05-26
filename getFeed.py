@@ -31,6 +31,6 @@ for item in data.iterfind('channel/item'):
     document += markup
 
 #show result as HTML
-print '<ul>\n'
+print '<ul>'
 print(document)
-print '<ul>\n'
+print '<ul>'

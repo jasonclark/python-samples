@@ -11,7 +11,7 @@ URI = sys.argv[1] if len(sys.argv) > 1 else 'http://www.npr.org/rss/rss.php?id=1
     #URI = sys.argv[1]
 
 #get feed data source
-request = requests.get(URI)
+request = requests.get(URI, stream=True)
 
 #check for HTTP codes other than 200
 if request.status_code != 200:
@@ -19,7 +19,7 @@ if request.status_code != 200:
     exit()
 
 #actual xml document
-document = xml.dom.minidom.parse(request.text)
+document = xml.dom.minidom.parse(request.raw)
 
 #create empty string to store information
 info = ""

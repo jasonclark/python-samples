@@ -34,13 +34,13 @@ def parseSource(uri):
 
     #for link in soup.find_all('a', attrs={'property':'about'}):
     for link in soup.find_all(property='about'):
-        #print('about link: \n' + link.get('href'))
-        print('about link: \n' + link.string)
+        #print('about data: \n' + link.get('href'))
+        print('about data: \n' + link.string)
 
     #for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
     for dblink in soup.find_all(property='additionalType'):
-        #print('additionalType link: \n' + dblink.get('resource'))
-        print('additionalType link: \n' + dblink.string)
+        #print('additionalType data: \n' + dblink.get('resource'))
+        print('additionalType data: \n' + dblink.string)
     
 showResult = parseSource(URI)
 print showResult

@@ -29,17 +29,18 @@ def parseSource(uri):
 
     title = soup.title.string
 
-    print ('Page URL: \n' + uri)
-
     print ('Page Title: \n' + title)
+    print ('Page URL: \n' + uri)
 
     #for link in soup.find_all('a', attrs={'property':'about'}):
     for link in soup.find_all(property='about'):
-        print('about link: \n' + link.get('href'))
+        #print('about link: \n' + link.get('href'))
+        print('about link: \n' + link.string)
 
     #for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
     for dblink in soup.find_all(property='additionalType'):
-        print('additionalType link: \n' + dblink.get('resource'))
+        #print('additionalType link: \n' + dblink.get('resource'))
+        print('additionalType link: \n' + dblink.string)
     
 showResult = parseSource(URI)
 print showResult

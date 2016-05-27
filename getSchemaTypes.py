@@ -41,7 +41,9 @@ def parseSource(uri):
     for dblink in soup.find_all(property='additionalType'):
         #print('additionalType data: \n' + dblink.get('resource'))
         print('additionalType data: \n' + dblink.string)
-	print json.dumps(dblink.string, indent = 4)
-    
+	#print json.dumps(dblink.string, indent = 4)
+	with open('json-kg-types.txt', 'w') as outfile:
+            json.dump(dblink.string, outfile, indent = 4)
+
 showResult = parseSource(URI)
 print showResult

@@ -36,13 +36,16 @@ def parseSource(uri):
     for link in soup.find_all(property='about'):
         #print('about data: \n' + link.get('href'))
         print('about data: \n' + link.string)
+	with open('json-schema-about.txt', 'w') as outfile:
+            json.dump(link.string, outfile, indent = 4)
+
 
     #for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
     for dblink in soup.find_all(property='additionalType'):
         #print('additionalType data: \n' + dblink.get('resource'))
         print('additionalType data: \n' + dblink.string)
 	#print json.dumps(dblink.string, indent = 4)
-	with open('json-kg-types.txt', 'w') as outfile:
+	with open('json-schema-types.txt', 'w') as outfile:
             json.dump(dblink.string, outfile, indent = 4)
 
 showResult = parseSource(URI)

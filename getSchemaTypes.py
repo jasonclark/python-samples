@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
-#import json
+import json
 import requests
 #import urllib
 import sys
@@ -42,5 +42,22 @@ def parseSource(uri):
         #print('additionalType data: \n' + dblink.get('resource'))
         print('additionalType data: \n' + dblink.string)
     
+def makeSource(uri):
+    request = requests.get(uri, headers={'User-Agent' : 'jasonclark.info indexing bot'})
+
+    #check for HTTP codes other than 200
+    if request.status_code != 200:
+        print('Status:', request.status_code, 'Problem with the request. Exiting.')
+        exit()
+
+    #convert json into python object
+    jsonFile = json.loads(request.text)
+
+    with open('json-kg-sample.txt', 'w') as outfile:
+        json.dump(jsonFile, outfile, sort_keys = True, indent = 4)
+
 showResult = parseSource(URI)
 print showResult
+
+createFile = makeSource(URI)
+print 'JSON file created.'

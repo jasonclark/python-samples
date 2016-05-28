@@ -43,7 +43,7 @@ def parseSource(uri):
         aboutList.append((tagValue, len(tagValue)))
 	
     with open('json-schema-about.txt', 'w') as outfile:
-            json.dump(aboutList, outfile, indent = 4)
+        json.dump(aboutList, outfile, indent = 4)
 
     #set empty list for type json values
     typeList = []

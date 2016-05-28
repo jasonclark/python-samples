@@ -38,8 +38,9 @@ def parseSource(uri):
     #for link in soup.find_all('a', attrs={'property':'about'}):
     for link in soup.find_all(property='about'):
         #print('about data: \n' + link.get('href'))
-        print('about data: \n' + link.string)
-        aboutList.append((link.string, len(link.string)))
+        tagValue = link.string.strip('\r\n\t')
+        print('about data: \n' + tagValue)
+        aboutList.append((tagValue, len(tagValue)))
 	
     with open('json-schema-about.txt', 'w') as outfile:
             json.dump(aboutList, outfile, indent = 4)

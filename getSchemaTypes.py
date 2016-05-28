@@ -32,21 +32,31 @@ def parseSource(uri):
     print ('Page Title: \n' + title)
     print ('Page URL: \n' + uri)
 
+    #set empty list for about json values
+    aboutList = [] 
+
     #for link in soup.find_all('a', attrs={'property':'about'}):
     for link in soup.find_all(property='about'):
         #print('about data: \n' + link.get('href'))
         print('about data: \n' + link.string)
-	with open('json-schema-about.txt', 'w') as outfile:
-            json.dump(link.string, outfile, indent = 4)
+        aboutList.append((link.string, len(link.string)))
+	
+    with open('json-schema-about.txt', 'w') as outfile:
+            json.dump(aboutList, outfile, indent = 4)
 
+    #set empty list for type json values
+    typeList = []
 
     #for dblink in soup.find_all('link', attrs={'property':'additionalType'}):
     for dblink in soup.find_all(property='additionalType'):
         #print('additionalType data: \n' + dblink.get('resource'))
         print('additionalType data: \n' + dblink.string)
 	#print json.dumps(dblink.string, indent = 4)
-	with open('json-schema-types.txt', 'w') as outfile:
-            json.dump(dblink.string, outfile, indent = 4)
+        typeList.append((dblink.string, len(dblink.string)))
+
+    with open('json-schema-types.txt', 'w') as outfile:
+        json.dump(typeList, outfile, indent = 4)
 
 showResult = parseSource(URI)
 print showResult
+print 'JSON files created.'

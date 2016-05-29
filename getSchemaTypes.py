@@ -40,7 +40,7 @@ def parseSource(uri):
         #print('about data: \n' + link.get('href'))
         tagValue = link.string.strip('\r\n\t')
         print('about data: \n' + tagValue)
-        aboutList.append((tagValue, len(tagValue)))
+        aboutList.append({"about": tagValue, "length": len(tagValue)})
 	
     with open('json-schema-about.txt', 'w') as outfile:
         json.dump(aboutList, outfile, indent = 4)
@@ -53,7 +53,7 @@ def parseSource(uri):
         #print('additionalType data: \n' + dblink.get('resource'))
         print('additionalType data: \n' + dblink.string)
 	#print json.dumps(dblink.string, indent = 4)
-        typeList.append((dblink.string, len(dblink.string)))
+        typeList.append({"type": dblink.string, "length":len(dblink.string)})
 
     with open('json-schema-types.txt', 'w') as outfile:
         json.dump(typeList, outfile, indent = 4)

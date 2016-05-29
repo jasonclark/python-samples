@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from bs4 import BeautifulSoup
+import csv
 import json
 import requests
 #import urllib
@@ -44,6 +45,10 @@ def parseSource(uri):
 	
     with open('json-schema-about.txt', 'w') as outfile:
         json.dump(aboutList, outfile, indent = 4)
+
+    with open('json-schema-about.csv', 'w') as outfile:
+        writeFile = csv.writer(outfile)
+        writeFile.writerow(aboutList)
 
     #set empty list for type json values
     typeList = []

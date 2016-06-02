@@ -13,7 +13,7 @@ URI = sys.argv[1] if len(sys.argv) > 1 else 'https://arc.lib.montana.edu/ivan-do
 #if len(sys.argv) > 1:
     #URI = sys.argv[1]
 
-def parseSource(uri):
+def parse_source(uri):
     request = requests.get(uri, headers={'User-Agent' : 'jasonclark.info indexing bot'})
     #request = urllib.urlopen(uri).read()
 
@@ -63,6 +63,6 @@ def parseSource(uri):
     with open('json-schema-types.txt', 'w') as outfile:
         json.dump(typeList, outfile, indent = 4)
 
-showResult = parseSource(URI)
+showResult = parse_source(URI)
 print showResult
-print 'JSON files created.'
+print 'JSON and CSV files created.'

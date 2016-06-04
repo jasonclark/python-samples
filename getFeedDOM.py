@@ -19,6 +19,7 @@ if request.status_code != 200:
     exit()
 
 # actual xml document
+request.raw.decode_content = True
 document = xml.dom.minidom.parse(request.raw)
 
 # create empty string to store information

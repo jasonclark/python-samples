@@ -8,7 +8,7 @@ try:
     params = {
             'url': 'https://www.jasonclark.info/',
             'requestScreenshot': 'true',
-            'key': "AIzaSyDFgTkGUqviSXhBpr3BNXWy_aK2j1fnl9c"
+            'key': "ADD-YOUR-API-KEY-HERE"
         }
     x = requests.post(url, data = params)
     data = json.loads(x.text)  

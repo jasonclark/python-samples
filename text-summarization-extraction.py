@@ -13,12 +13,14 @@ from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize, sent_tokenize
 import bs4 as BeautifulSoup
 import urllib.request  
+import sys
+
+#URI of the data source
+URI = sys.argv[1] if len(sys.argv) > 1 else 'https://en.wikipedia.org/wiki/Library'
 
 #fetching the content from the URL
-#note: add feature where one can pass URL to script
-#fetched_data = urllib.request.urlopen('https://en.wikipedia.org/wiki/Al_Capone')
-fetched_data = urllib.request.urlopen('https://en.wikipedia.org/wiki/Library')
 #fetched_data = urllib.request.urlopen('https://en.wikipedia.org/wiki/20th_century')
+fetched_data = urllib.request.urlopen(URI)
 
 article_read = fetched_data.read()
 

@@ -1,0 +1,20 @@
+#Requirements without Version Specifiers
+beautifulsoup4
+bs4
+click
+joblib
+nltk
+regex
+soupsieve
+tqdm
+
+#Requirements with Version Specifiers
+#Snapshot of Virtual Environment using "$ pip freeze -l > requirements.txt"
+#beautifulsoup4==4.10.0
+#bs4==0.0.1
+#click==8.0.3
+#joblib==1.1.0
+#nltk==3.6.5
+#regex==2021.10.8
+#soupsieve==2.2.1
+#tqdm==4.62.3
